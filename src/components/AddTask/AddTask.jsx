@@ -4,20 +4,28 @@ import { HiPlus } from "react-icons/hi";
 import { useState } from "react";
 
 const AddTask = (props) => {
-  const [text,setText] = useState("")
-  // function handleAdd() {
-  //   console.log(text)
-  //   props.addData(text);
-  // }
+  const { addData, data } = props;
+  const [text, setText] = useState({
+    count: 1,
+    done: false,
+    id: data.length+1,
+    text: "",
+  });
+  function handleAdd() {
+    console.log(text);
+    data.push(text);
+    addData(data);
+    console.log("data", data);
+  }
   return (
     <div className={styles.todoForm}>
       <input
         data-testid="add-task-input"
         type="text"
         placeholder="Add task..."
-        onInput={(e) => setText(e.target.value)}
+        onInput={(e) => setText(text,text.text=e.target.value)}
       />
-      <button data-testid="add-task-button" onClick={() => props.addData(text)}>
+      <button data-testid="add-task-button" onClick={handleAdd}>
         <HiPlus />
       </button>
     </div>

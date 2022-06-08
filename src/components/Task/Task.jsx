@@ -5,12 +5,12 @@ import { ImCross } from "react-icons/im";
 
 const Task = (props) => {
   console.log("Show", props.showData)
-  const data = []
+  const data = props.showData
   // NOTE: do not delete `data-testid` key value pair
   return (
   <>
     {
-      data.map((e) => (
+      data?.map((e) => (
           <li data-testid="task" className={styles.task}>
       <input type="checkbox" data-testid="task-checkbox" />
           <div data-testid="task-text">{ e.text}</div>
