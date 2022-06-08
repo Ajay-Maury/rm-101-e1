@@ -11,7 +11,7 @@ const Task = (props) => {
   <>
     {
       data?.map((e) => (
-          <li data-testid="task" className={styles.task}>
+          <li data-testid="task" className={styles.task} key={e.id} >
       <input type="checkbox" data-testid="task-checkbox" />
           <div data-testid="task-text">{ e.text}</div>
       {/* Counter here */}

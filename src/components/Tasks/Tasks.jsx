@@ -3,7 +3,7 @@ import styles from "./tasks.module.css";
 import { Task } from "../Task";
 
 const Tasks = (props) => {
-  console.log(props.data)
+  console.log("Task",props.data)
   // NOTE: do not delete `data-testid` key value pair
   return (
     <>

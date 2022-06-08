@@ -4,7 +4,7 @@ import { HiPlus } from "react-icons/hi";
 import { useState } from "react";
 
 const AddTask = (props) => {
-  const { addData, data } = props;
+  // const { addData, data } = props;
   const [text, setText] = useState({
     count: 1,
     done: false,
@@ -13,8 +13,8 @@ const AddTask = (props) => {
   });
   function handleAdd() {
     console.log(text);
-    data.push(text);
-    addData(data);
+    props.data.push(text);
+    props.addData(data);
     console.log("data", data);
   }
   return (
