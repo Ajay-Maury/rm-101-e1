@@ -11,16 +11,26 @@ const AddTask = ({addData,data}) => {
     id: null,
     text: "",
   });
-  // function handleAdd() {
-  //   // console.log("text",textdata);
-  //   addData([...data, textdata]);
-  //   // console.log("data", data);
-  // }
+  function handleAdd() {
+    // console.log("text",textdata);
+    let flag = true
+    for (let i = 0; i < data.length; i++){
+      if (textdata.text == data[i].text) {
+        flag = false
+      }
+    }
+    if(flag && textdata.text!=="")
+    addData([...data, textdata]);
+    
+    // console.log("data", data);
+  }
   return (
     <div className={styles.todoForm}>
       <input
         data-testid="add-task-input"
         type="text"
+        className={styles.addinput}
+        // style={{width:"80%",border:"none",fontSize:"x-large",}}
         placeholder="Add task..."
         onInput={(e) =>
           setTextdata({
@@ -31,8 +41,9 @@ const AddTask = ({addData,data}) => {
         }
       />
       <button
+        className= {styles.addbtn }
         data-testid="add-task-button"
-        onClick={() => addData([...data, textdata])}
+        onClick={handleAdd}
       >
         <HiPlus />
       </button>

@@ -2,5 +2,19 @@
   /* Sample  */
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
+  font-size: larger;
+  flex-direction: row;
+  margin: 5%;
+}
+.cross{
+  /* visibility: hidden; */
+  border: none;
+  background-color: transparent;
+  color: transparent;
+}
+.cross:hover{
+  display: block;
+  visibility: visible;
+  color: black;
 }

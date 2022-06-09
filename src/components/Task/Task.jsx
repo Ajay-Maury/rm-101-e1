@@ -23,13 +23,14 @@ const Task = ({ showData, setData }) => {
           <input
             type="checkbox"
             data-testid="task-checkbox"
+            className={styles.checkb}
             checked={elem.done}
             onChange={() => handlecheck(elem)}
           />
           {elem.done ? (
             <div
               data-testid="task-text"
-              style={{ textDecoration: "line-through" }}
+              style={{ textDecoration: "line-through",color:"gray" }}
               className="txt"
             >
               {elem.text}
@@ -43,6 +44,7 @@ const Task = ({ showData, setData }) => {
           <Counter count={elem.count} />
           <button
             data-testid="task-remove-button"
+            className={styles.cross}
             onClick={() => setData(showData.filter((e)=>e.id!==elem.id))}
           >
             <ImCross />

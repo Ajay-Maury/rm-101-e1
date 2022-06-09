@@ -11,6 +11,7 @@ const Counter = ({count}) => {
   return (
     <div className={styles.counter}>
       <button
+        className={styles.button}
         data-testid="task-counter-increment-button"
         onClick={() => setCountnter(counter + 1)}
       >
@@ -20,6 +21,7 @@ const Counter = ({count}) => {
       <button
         data-testid="task-counter-decrement-button"
         onClick={() => counter > 1 && setCountnter(counter - 1)}
+        className={styles.button}
       >
         <HiMinus />
       </button>
