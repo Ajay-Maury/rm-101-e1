@@ -3,29 +3,37 @@ import styles from "./addTask.module.css";
 import { HiPlus } from "react-icons/hi";
 import { useState } from "react";
 
-const AddTask = (props) => {
+const AddTask = ({addData,data}) => {
   // const { addData, data } = props;
-  const [text, setText] = useState({
+  const [textdata, setTextdata] = useState({
     count: 1,
     done: false,
-    id: data.length+1,
+    id: null,
     text: "",
   });
-  function handleAdd() {
-    console.log(text);
-    props.data.push(text);
-    props.addData(data);
-    console.log("data", data);
-  }
+  // function handleAdd() {
+  //   // console.log("text",textdata);
+  //   addData([...data, textdata]);
+  //   // console.log("data", data);
+  // }
   return (
     <div className={styles.todoForm}>
       <input
         data-testid="add-task-input"
         type="text"
         placeholder="Add task..."
-        onInput={(e) => setText(text,text.text=e.target.value)}
+        onInput={(e) =>
+          setTextdata({
+            ...textdata,
+            text: e.target.value,
+            id: data.length + 1,
+          })
+        }
       />
-      <button data-testid="add-task-button" onClick={handleAdd}>
+      <button
+        data-testid="add-task-button"
+        onClick={() => addData([...data, textdata])}
+      >
         <HiPlus />
       </button>
     </div>

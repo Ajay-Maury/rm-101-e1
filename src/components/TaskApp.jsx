@@ -9,7 +9,7 @@ import data from "../data/tasks.json"
 
 const TaskApp = () => {
   const [newData, setNewData] = useState(data);
-//  console.log("newData : ", newData);
+ console.log("newData : ", newData);
   // NOTE: do not delete `data-testid` key value pair
   return (
     <div data-testid="task-app" className={styles.taskApp}>
