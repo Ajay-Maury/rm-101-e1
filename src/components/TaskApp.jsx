@@ -15,7 +15,7 @@ const TaskApp = () => {
     <div data-testid="task-app" className={styles.taskApp}>
       <TaskHeader data={newData} />
       <AddTask addData={setNewData} data={newData} />
-      <Tasks data={newData} />
+      <Tasks data={newData} setData={setNewData} />
     </div>
   );
 };
